@@ -2,14 +2,20 @@
   <div class="profile">
     <img :src="gravatar" />
 
-    <div class="detail-container" v-if="!isEditName">
+    <div
+      class="detail-container"
+      v-if="!isChangePassword && !isEditEmail && !isEditName"
+    >
       <h3>{{ fullName }}</h3>
       <button @click="toggleEditNameForm">
         <font-awesome-icon icon="pencil-alt" />
       </button>
     </div>
 
-    <div class="detail-container" v-if="!isEditEmail">
+    <div
+      class="detail-container"
+      v-if="!isChangePassword && !isEditEmail && !isEditName"
+    >
       <h3>{{ email }}</h3>
       <button @click="toggleEditEmailForm">
         <font-awesome-icon icon="pencil-alt" />
@@ -19,7 +25,7 @@
     <button
       class="changePasswordBtn"
       @click="toggleChangePasswordForm"
-      v-if="!isChangePassword"
+      v-if="!isChangePassword && !isEditEmail && !isEditName"
     >
       Change Password
     </button>
